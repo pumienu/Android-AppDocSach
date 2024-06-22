@@ -66,6 +66,7 @@ public class TextToSpeechService extends AppCompatActivity {
                 Intent installIntent = new Intent();
                 installIntent.setAction(TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
                 startActivity(installIntent);
+                finish();
             }
         }
     }

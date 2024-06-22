@@ -22,7 +22,7 @@ import androidx.fragment.app.Fragment;
 import com.example.appdocsach.R;
 
 public class ContactFragment extends Fragment {
-    AppCompatButton btn1, btn2, btn3;
+    AppCompatButton btn1, btn3;
     ImageView backarrow;
     private static final int CALL_PHONE_PERMISSION_REQUEST_CODE = 1;
 

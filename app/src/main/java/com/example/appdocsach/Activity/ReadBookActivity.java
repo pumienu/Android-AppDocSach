@@ -15,9 +15,12 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.appdocsach.MainActivity;
 import com.example.appdocsach.R;
+import com.example.appdocsach.Services.TextToSpeechService;
 import com.example.appdocsach.model.BooksModel;
 import android.view.View;
 import android.widget.Toast;
+
+import org.checkerframework.common.returnsreceiver.qual.This;
 
 
 public class ReadBookActivity extends AppCompatActivity {
@@ -45,6 +48,22 @@ public class ReadBookActivity extends AppCompatActivity {
                 startActivity(it);
             }
         });
+        discIconReadBook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+           
+
+                Toast.makeText(ReadBookActivity.this, "Đã thêm vào danh sách yêu thích", Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(ReadBookActivity.this, TextToSpeechService.class);
+                intent.putExtra("textToSpeak", bookContent);
+                startActivity(intent);
+
+
+            }
+        });
+
+
 
         // get content book from detailbook
         BooksModel book = (BooksModel) getIntent().getSerializableExtra("book_content");

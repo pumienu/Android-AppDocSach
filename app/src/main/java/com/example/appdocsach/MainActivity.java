@@ -113,9 +113,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         // Hủy đăng ký BroadcastReceiver khi Activity không còn hiển thị
-        if (isReceiverRegistered) {
-            unregisterReceiver(internetBroadcastReceiver);
-            isReceiverRegistered = false;
+        try {
+            if (isReceiverRegistered) {
+                unregisterReceiver(internetBroadcastReceiver);
+                isReceiverRegistered = false;
+            }
+        } catch (Exception e){
         }
+
     }
 }

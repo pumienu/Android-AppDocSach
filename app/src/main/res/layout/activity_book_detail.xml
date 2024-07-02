@@ -1,45 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:fitsSystemWindows="true"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.BookDetailActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:id="@+id/headerDetailBook"
         android:layout_width="match_parent"
-        android:layout_height="68dp"
+        android:layout_height="73dp"
         android:background="@drawable/navbottombackground"
+        android:gravity="center_vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:layout_marginLeft="@dimen/mgborder"
             android:id="@+id/backButton"
             style="@style/IconStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/mgborder"
             android:src="@drawable/baseline_arrow_back_ios_24"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/downloadButton"
-            style="@style/IconStyle"
-            android:src="@drawable/downloadicon"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/threeDotsButton"
-            app:layout_constraintTop_toTopOf="parent" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
 
-        <ImageView
-            android:layout_marginRight="@dimen/mgborder"
-            android:id="@+id/threeDotsButton"
-            style="@style/IconStyle"
-            android:src="@drawable/threedotsicon"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/downloadButton"
+                style="@style/IconStyle"
+                android:src="@drawable/downloadicon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/threeDotsButtonDetail"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/threeDotsButton"
+                style="@style/IconStyle"
+                android:layout_marginRight="@dimen/mgborder"
+                android:src="@drawable/threedotsicon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
+    </LinearLayout>
+
 
     <ImageView
         android:id="@+id/imgDetailBook"
@@ -136,30 +153,30 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <LinearLayout
-        android:layout_marginTop="@dimen/mgtop"
-        app:layout_constraintTop_toBottomOf="@id/likedissaveDetail"
-        android:id="@+id/topofauthor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/view_count"
-            android:textSize="@dimen/sizecontenttext"/>
-        <ImageView
-            android:layout_marginLeft="@dimen/mgtop"
-            android:layout_marginRight="@dimen/mgtop"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:src="@drawable/viewicon" />
-        <TextView
-            android:id="@+id/ViewCount"
-            android:text="@string/view_count"
-            android:textSize="@dimen/sizecontenttext"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
+ <LinearLayout
+     android:layout_marginTop="@dimen/mgtop"
+     app:layout_constraintTop_toBottomOf="@id/likedissaveDetail"
+     android:id="@+id/topofauthor"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content">
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="@string/view_count"
+         android:textSize="@dimen/sizecontenttext"/>
+     <ImageView
+         android:layout_marginLeft="@dimen/mgtop"
+         android:layout_marginRight="@dimen/mgtop"
+         android:layout_width="28dp"
+         android:layout_height="28dp"
+         android:src="@drawable/viewicon" />
+     <TextView
+         android:id="@+id/ViewCount"
+         android:text="@string/view_count"
+         android:textSize="@dimen/sizecontenttext"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"/>
+ </LinearLayout>
 
     <LinearLayout
         android:layout_marginTop="@dimen/mgtop"
@@ -225,3 +242,4 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+

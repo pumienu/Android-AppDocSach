@@ -1,5 +1,6 @@
 package com.example.appdocsach.Fragment.typebook;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.appdocsach.Activity.BookDetailActivity;
 import com.example.appdocsach.Adapter.BooksAdapterVertical;
 import com.example.appdocsach.R;
 import com.example.appdocsach.model.BooksModel;
@@ -47,7 +49,7 @@ public class CookTypeFragment extends Fragment {
         booksAdapterCook = new BooksAdapterVertical( mListBookCook, new BooksAdapterVertical.IClickListener() {
             @Override
             public void onClickReadItemBook(BooksModel books) {
-                Toast.makeText(getContext(), "click", Toast.LENGTH_SHORT).show();
+                showDetailBook(books);
                 logSelectContentEvent(books); // Log SELECT_CONTENT event when user clicks on a book
             }
         });
@@ -59,6 +61,11 @@ public class CookTypeFragment extends Fragment {
         getListRealtimeCook();
     }
 
+    private void showDetailBook(BooksModel books) {
+        Intent it = new Intent(getActivity(), BookDetailActivity.class);
+        it.putExtra("book_data", books); ///make serialize
+        startActivity(it);
+    }
     private void getListRealtimeCook() {
         DatabaseReference myRef = database.getReference("books");
 
